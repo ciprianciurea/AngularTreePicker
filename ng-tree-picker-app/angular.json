@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "ng-tree-picker": {
+      "root": "projects/ng-tree-picker",
+      "sourceRoot": "projects/ng-tree-picker/src",
+      "projectType": "library",
+      "prefix": "mat-cc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-tree-picker/tsconfig.lib.json",
+            "project": "projects/ng-tree-picker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-tree-picker/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-tree-picker/src/test.ts",
+            "tsConfig": "projects/ng-tree-picker/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-tree-picker/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-tree-picker/tsconfig.lib.json",
+              "projects/ng-tree-picker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-tree-picker-app"
